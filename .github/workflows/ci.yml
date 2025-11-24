@@ -1,0 +1,45 @@
+# GitHub Actions workflow file to build and lint the project
+name: build-and-lint
+
+# define when to run the workflow
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+# define jobs (you can define multiple jobs also)
+jobs:
+  build-and-lint:               # job name
+    runs-on: ubuntu-latest      # specify the runner environment
+
+    steps:
+      - name: Checkout repo         # step name
+        uses: actions/checkout@v3   # action to checkout the repository
+
+      - name: Setup Node                # step name
+        uses: actions/setup-node@v3     # action to setup Node.js
+        with:                           # inputs for the action
+          node-version: 24              # specify Node.js version
+
+      - name: Install backend deps       # step name
+        working-directory: backend       # specify working directory for backend
+        run: npm ci                      # install backend dependencies
+
+      - name: Lint backend               # step name
+        working-directory: backend       # specify working directory for backend
+        run: npm run lint -- --max-warnings=0  # lint backend code
+
+      - name: Install frontend deps      # step name
+        working-directory: frontend      # specify working directory for frontend
+        run: npm ci                      # install frontend dependencies
+
+      - name: Lint frontend               # step name
+        working-directory: frontend       # specify working directory for frontend
+        run: npm run lint -- --max-warnings=0  # lint frontend code
+
+      - name: Build backend Docker image            # step name
+        run: docker build -t backend ./backend      # build backend Docker image
+
+      - name: Build frontend Docker image             # step name
+        run: docker build -t frontend ./frontend      # build frontend Docker image
