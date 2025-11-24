@@ -15,8 +15,6 @@ const Contact = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
 
-  // WhatsApp number - should be in env variable (format: country code + number, no + or spaces)
-  // Example: 1234567890 for US number
   const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER;
 
   const handleChange = (e) => {

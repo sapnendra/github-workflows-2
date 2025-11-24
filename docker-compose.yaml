@@ -1,0 +1,38 @@
+services:
+  backend:             # Backend service for ByteBloom
+    build: ./backend
+    ports:
+      - "3000:3000" 
+    networks:
+      - bytebloom_network
+    environment:
+      MONGO_URI: mongodb://mongodb:27018/ByteBloom-Agency  
+    depends_on:
+      - mongodb
+
+  frontend:            # Frontend service for ByteBloom
+    build: ./frontend
+    ports:
+      - "5173:5173"  
+    networks:
+      - bytebloom_network
+    environment:
+      VITE_API_URL: http://localhost:3000/api
+      VITE_WHATSAPP_NUMBER: 9685238884
+
+  mongodb:             # MongoDB service
+    image: mongo:latest  
+    ports:
+      - "27018:27018"  
+    networks:
+      - bytebloom_network
+    volumes:
+      - ./mongo-data:/data/db   # Persist MongoDB data
+
+networks:
+  bytebloom_network:
+    driver: bridge  # Custom bridge network for ByteBloom services
+
+# volumes:
+#   mongo-data:
+#     driver: local  # Persist MongoDB data locally
