@@ -22,13 +22,13 @@ const Services = () => {
                 duration: 0.6,
                 stagger: 0.1,
                 ease: 'power3.out',
-              }
+              },
             );
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (sectionRef.current) {
@@ -42,7 +42,8 @@ const Services = () => {
     {
       icon: '🌐',
       title: 'Website Development',
-      description: 'Static & dynamic websites built with modern technologies like React, ExpressJS, and TailwindCSS.',
+      description:
+        'Static & dynamic websites built with modern technologies like React, ExpressJS, and TailwindCSS.',
     },
     {
       icon: '✨',
@@ -93,9 +94,7 @@ const Services = () => {
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                 {service.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                {service.description}
-              </p>
+              <p className="text-gray-600 dark:text-gray-400">{service.description}</p>
             </div>
           ))}
         </div>
@@ -105,4 +104,3 @@ const Services = () => {
 };
 
 export default Services;
-

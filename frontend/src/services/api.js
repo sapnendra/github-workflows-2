@@ -64,12 +64,15 @@ export const updateClientStatus = async (clientId, statusData, token) => {
 
 export const adminLogout = async (token) => {
   try {
-    const response = await api.post('/admin/logout', {}, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const response = await api.post(
+      '/admin/logout',
+      {},
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      },
+    );
     return response.data;
   } catch (error) {
     throw error.response?.data || { message: 'Failed to logout' };
   }
 };
-

@@ -4,7 +4,7 @@ import {
   adminLogout,
   getAllClientsData,
   getStatusOverview,
-  updateClientStatus
+  updateClientStatus,
 } from '../controllers/adminController.js';
 import { authenticateAdmin } from '../middlewares/authMiddleware.js';
 

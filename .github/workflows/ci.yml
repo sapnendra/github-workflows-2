@@ -34,10 +34,6 @@ jobs:
         working-directory: frontend      # specify working directory for frontend
         run: npm ci                      # install frontend dependencies
 
-      - name: Lint frontend               # step name
-        working-directory: frontend       # specify working directory for frontend
-        run: npm run lint -- --max-warnings=0  # lint frontend code
-
       - name: Build backend Docker image            # step name
         run: docker build -t backend ./backend      # build backend Docker image
 

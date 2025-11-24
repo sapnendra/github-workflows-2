@@ -43,7 +43,9 @@ const Contact = () => {
       if (WHATSAPP_NUMBER) {
         openWhatsApp(WHATSAPP_NUMBER, whatsappMessage);
       } else {
-        console.warn('WhatsApp number not configured. Please set VITE_WHATSAPP_NUMBER in .env file');
+        console.warn(
+          'WhatsApp number not configured. Please set VITE_WHATSAPP_NUMBER in .env file',
+        );
       }
 
       setSuccess(true);
@@ -78,7 +80,10 @@ const Contact = () => {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+          <form
+            onSubmit={handleSubmit}
+            className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700"
+          >
             {error && (
               <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
                 <p className="text-red-600 dark:text-red-400">{error}</p>
@@ -95,7 +100,10 @@ const Contact = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
                   Name *
                 </label>
                 <input
@@ -111,7 +119,10 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
                   Email *
                 </label>
                 <input
@@ -129,7 +140,10 @@ const Contact = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
                   Phone *
                 </label>
                 <input
@@ -145,7 +159,10 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="projectType" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label
+                  htmlFor="projectType"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
                   Project Type *
                 </label>
                 <select
@@ -169,7 +186,10 @@ const Contact = () => {
             </div>
 
             <div className="mb-6">
-              <label htmlFor="budgetRange" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label
+                htmlFor="budgetRange"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
                 Budget Range *
               </label>
               <select
@@ -190,7 +210,10 @@ const Contact = () => {
             </div>
 
             <div className="mb-6">
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
                 Project Details *
               </label>
               <textarea
@@ -220,4 +243,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

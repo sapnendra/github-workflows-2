@@ -15,8 +15,8 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-gray-600 dark:text-gray-400 mb-4 max-w-md">
-              A digital-first web development and design agency dedicated to crafting high-performance, 
-              visually impactful, and business-driven websites.
+              A digital-first web development and design agency dedicated to crafting
+              high-performance, visually impactful, and business-driven websites.
             </p>
             <p className="text-sm text-gray-500 dark:text-gray-500">
               © {currentYear} ByteBloom Agency. All rights reserved.
@@ -76,4 +76,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

@@ -22,13 +22,13 @@ const About = () => {
                 duration: 0.8,
                 stagger: 0.1,
                 ease: 'power3.out',
-              }
+              },
             );
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (sectionRef.current) {
@@ -71,10 +71,10 @@ const About = () => {
               About ByteBloom Agency
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              ByteBloom Agency is a digital-first web development and design agency dedicated to 
-              crafting high-performance, visually impactful, and business-driven websites. The name 
-              "ByteBloom" symbolizes growth through technology — where every digital byte contributes 
-              to a brand's success.
+              ByteBloom Agency is a digital-first web development and design agency dedicated to
+              crafting high-performance, visually impactful, and business-driven websites. The name
+              "ByteBloom" symbolizes growth through technology — where every digital byte
+              contributes to a brand's success.
             </p>
           </div>
 
@@ -84,10 +84,10 @@ const About = () => {
               Our Origin Story
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              ByteBloom Agency began with a mission to provide small businesses with professional, 
-              transparent, and result-oriented web solutions. Recognizing the challenges faced by small 
-              brands—unclear pricing, low-quality websites, lack of support—the agency was formed to 
-              bridge this gap using modern technologies and ethical communication.
+              ByteBloom Agency began with a mission to provide small businesses with professional,
+              transparent, and result-oriented web solutions. Recognizing the challenges faced by
+              small brands—unclear pricing, low-quality websites, lack of support—the agency was
+              formed to bridge this gap using modern technologies and ethical communication.
             </p>
           </div>
 
@@ -101,7 +101,7 @@ const About = () => {
                 Vision Statement
               </h3>
               <p className="text-lg text-gray-700 dark:text-gray-300 italic">
-                "To become a trusted digital partner that transforms brands through innovative web 
+                "To become a trusted digital partner that transforms brands through innovative web
                 solutions, seamless user experiences, and meaningful business growth."
               </p>
             </div>
@@ -136,9 +136,7 @@ const About = () => {
 
           {/* Core Values */}
           <div ref={(el) => (contentRef.current[3] = el)} className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-              Core Values
-            </h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Core Values</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {values.map((value, index) => (
                 <div
@@ -148,9 +146,7 @@ const About = () => {
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                     {value.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
-                    {value.description}
-                  </p>
+                  <p className="text-gray-600 dark:text-gray-400">{value.description}</p>
                 </div>
               ))}
             </div>
@@ -186,9 +182,12 @@ const About = () => {
           </div>
 
           {/* Closing Note */}
-          <div ref={(el) => (contentRef.current[5] = el)} className="bg-gradient-to-r from-blue-600 to-purple-600 p-8 rounded-xl text-white">
+          <div
+            ref={(el) => (contentRef.current[5] = el)}
+            className="bg-gradient-to-r from-blue-600 to-purple-600 p-8 rounded-xl text-white"
+          >
             <p className="text-lg leading-relaxed">
-              ByteBloom Agency is more than a service provider — it is a digital growth partner 
+              ByteBloom Agency is more than a service provider — it is a digital growth partner
               committed to transforming business ideas into meaningful web experiences.
             </p>
           </div>
@@ -199,4 +198,3 @@ const About = () => {
 };
 
 export default About;
-

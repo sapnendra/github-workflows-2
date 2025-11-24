@@ -32,11 +32,13 @@ A modern, responsive client-acquisition website built with React, TailwindCSS, a
 ### Installation
 
 1. Install dependencies:
+
 ```bash
 npm install
 ```
 
 2. Create a `.env` file in the root directory:
+
 ```env
 VITE_API_URL=http://localhost:3000/api
 VITE_WHATSAPP_NUMBER=1234567890
@@ -47,6 +49,7 @@ VITE_WHATSAPP_NUMBER=1234567890
 ### Development
 
 Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -56,6 +59,7 @@ The app will be available at `http://localhost:5173`
 ### Build
 
 Build for production:
+
 ```bash
 npm run build
 ```
@@ -63,6 +67,7 @@ npm run build
 ### Preview
 
 Preview the production build:
+
 ```bash
 npm run preview
 ```
@@ -93,6 +98,7 @@ src/
 ## Backend Integration
 
 The frontend integrates with the backend API for:
+
 - Lead submission (`POST /api/leads`)
 - Admin authentication and management (admin routes)
 

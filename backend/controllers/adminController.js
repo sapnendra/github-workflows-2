@@ -24,21 +24,21 @@ export const adminLogin = async (req, res) => {
       console.error('Missing admin credentials or JWT secret in environment variables');
       return res.status(500).json({
         success: false,
-        message: 'Server configuration error'
+        message: 'Server configuration error',
       });
     }
 
     if (!email || !password) {
       return res.status(400).json({
         success: false,
-        message: 'Email and password are required'
+        message: 'Email and password are required',
       });
     }
 
     if (email !== adminEmail || password !== adminPassword) {
       return res.status(401).json({
         success: false,
-        message: 'Invalid admin credentials'
+        message: 'Invalid admin credentials',
       });
     }
 
@@ -49,13 +49,13 @@ export const adminLogin = async (req, res) => {
       success: true,
       message: 'Admin logged in successfully',
       token,
-      expiresIn
+      expiresIn,
     });
   } catch (error) {
     console.error('Admin login error:', error);
     return res.status(500).json({
       success: false,
-      message: 'Failed to login admin'
+      message: 'Failed to login admin',
     });
   }
 };
@@ -70,13 +70,13 @@ export const adminLogout = (req, res) => {
 
     return res.status(200).json({
       success: true,
-      message: 'Admin logged out successfully'
+      message: 'Admin logged out successfully',
     });
   } catch (error) {
     console.error('Admin logout error:', error);
     return res.status(500).json({
       success: false,
-      message: 'Failed to logout admin'
+      message: 'Failed to logout admin',
     });
   }
 };
@@ -87,31 +87,33 @@ export const getAllClientsData = async (req, res) => {
     return res.status(200).json({
       success: true,
       count: leads.length,
-      data: leads
+      data: leads,
     });
   } catch (error) {
     console.error('Error fetching clients for admin:', error);
     return res.status(500).json({
       success: false,
-      message: 'Failed to fetch clients data'
+      message: 'Failed to fetch clients data',
     });
   }
 };
 
 export const getStatusOverview = async (req, res) => {
   try {
-    const leads = await Lead.find().select('name email projectType status createdAt updatedAt').sort({ updatedAt: -1 });
+    const leads = await Lead.find()
+      .select('name email projectType status createdAt updatedAt')
+      .sort({ updatedAt: -1 });
 
     const summary = {
       pending: 0,
       in_progress: 0,
-      delivered: 0
+      delivered: 0,
     };
 
     const clientsByStatus = {
       pending: [],
       in_progress: [],
-      delivered: []
+      delivered: [],
     };
 
     leads.forEach((lead) => {
@@ -127,14 +129,14 @@ export const getStatusOverview = async (req, res) => {
       data: {
         summary,
         clientsByStatus,
-        recentActivities
-      }
+        recentActivities,
+      },
     });
   } catch (error) {
     console.error('Error fetching status overview:', error);
     return res.status(500).json({
       success: false,
-      message: 'Failed to fetch status overview'
+      message: 'Failed to fetch status overview',
     });
   }
 };
@@ -147,7 +149,7 @@ export const updateClientStatus = async (req, res) => {
     if (!status) {
       return res.status(400).json({
         success: false,
-        message: 'Status value is required'
+        message: 'Status value is required',
       });
     }
 
@@ -157,7 +159,7 @@ export const updateClientStatus = async (req, res) => {
     if (!lead) {
       return res.status(404).json({
         success: false,
-        message: 'Client not found'
+        message: 'Client not found',
       });
     }
 
@@ -165,7 +167,7 @@ export const updateClientStatus = async (req, res) => {
     lead.statusHistory.push({
       status: normalizedStatus,
       note,
-      updatedAt: new Date()
+      updatedAt: new Date(),
     });
 
     await lead.save();
@@ -173,14 +175,13 @@ export const updateClientStatus = async (req, res) => {
     return res.status(200).json({
       success: true,
       message: 'Client status updated successfully',
-      data: lead
+      data: lead,
     });
   } catch (error) {
     console.error('Error updating client status:', error);
     return res.status(500).json({
       success: false,
-      message: 'Failed to update client status'
+      message: 'Failed to update client status',
     });
   }
 };
-

@@ -10,29 +10,40 @@ const Hero = () => {
 
   useEffect(() => {
     const tl = gsap.timeline();
-    
+
     tl.from(titleRef.current, {
       opacity: 0,
       y: 30,
       duration: 0.8,
-      ease: 'power3.out'
+      ease: 'power3.out',
     })
-    .from(subtitleRef.current, {
-      opacity: 0,
-      y: 20,
-      duration: 0.6,
-      ease: 'power3.out'
-    }, '-=0.4')
-    .from(ctaRef.current, {
-      opacity: 0,
-      y: 20,
-      duration: 0.6,
-      ease: 'power3.out'
-    }, '-=0.4');
+      .from(
+        subtitleRef.current,
+        {
+          opacity: 0,
+          y: 20,
+          duration: 0.6,
+          ease: 'power3.out',
+        },
+        '-=0.4',
+      )
+      .from(
+        ctaRef.current,
+        {
+          opacity: 0,
+          y: 20,
+          duration: 0.6,
+          ease: 'power3.out',
+        },
+        '-=0.4',
+      );
   }, []);
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8">
+    <section
+      ref={heroRef}
+      className="relative min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8"
+    >
       <div className="max-w-4xl mx-auto text-center">
         <h1
           ref={titleRef}
@@ -47,7 +58,8 @@ const Hero = () => {
           ref={subtitleRef}
           className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto"
         >
-          ByteBloom Agency crafts high-performance, visually impactful websites that drive business growth.
+          ByteBloom Agency crafts high-performance, visually impactful websites that drive business
+          growth.
         </p>
         <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
@@ -69,4 +81,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

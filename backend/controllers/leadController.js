@@ -8,7 +8,7 @@ export const createLead = async (req, res) => {
     if (!name || !email || !phone || !projectType || !budgetRange || !message) {
       return res.status(400).json({
         success: false,
-        message: 'All fields are required'
+        message: 'All fields are required',
       });
     }
 
@@ -24,22 +24,22 @@ export const createLead = async (req, res) => {
         {
           status: 'pending',
           note: 'Lead submitted',
-          updatedAt: new Date()
-        }
-      ]
+          updatedAt: new Date(),
+        },
+      ],
     });
 
     res.status(201).json({
       success: true,
       message: 'Lead submitted successfully',
-      data: lead
+      data: lead,
     });
   } catch (error) {
     console.error('Error creating lead:', error);
     res.status(500).json({
       success: false,
       message: 'Error submitting lead',
-      error: error.message
+      error: error.message,
     });
   }
 };

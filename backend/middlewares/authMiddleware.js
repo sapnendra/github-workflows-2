@@ -17,14 +17,14 @@ export const authenticateAdmin = (req, res, next) => {
     if (!token) {
       return res.status(401).json({
         success: false,
-        message: 'Authorization token is required'
+        message: 'Authorization token is required',
       });
     }
 
     if (tokenBlacklist.has(token)) {
       return res.status(401).json({
         success: false,
-        message: 'Session has expired. Please login again.'
+        message: 'Session has expired. Please login again.',
       });
     }
 
@@ -34,7 +34,7 @@ export const authenticateAdmin = (req, res, next) => {
       console.error('JWT_SECRET is missing from environment variables');
       return res.status(500).json({
         success: false,
-        message: 'Server configuration error'
+        message: 'Server configuration error',
       });
     }
 
@@ -46,7 +46,7 @@ export const authenticateAdmin = (req, res, next) => {
     console.error('Admin authentication error:', error);
     return res.status(401).json({
       success: false,
-      message: 'Invalid or expired token'
+      message: 'Invalid or expired token',
     });
   }
 };
@@ -58,4 +58,3 @@ export const blacklistToken = (token) => {
 };
 
 export const extractToken = getTokenFromHeader;
-

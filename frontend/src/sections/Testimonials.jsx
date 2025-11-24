@@ -22,13 +22,13 @@ const Testimonials = () => {
                 duration: 0.6,
                 stagger: 0.15,
                 ease: 'power3.out',
-              }
+              },
             );
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (sectionRef.current) {
@@ -42,19 +42,22 @@ const Testimonials = () => {
     {
       name: 'Sarah Johnson',
       role: 'CEO, TechStart Inc.',
-      content: 'ByteBloom transformed our online presence. The team delivered a stunning website that perfectly captures our brand identity. Highly professional and responsive!',
+      content:
+        'ByteBloom transformed our online presence. The team delivered a stunning website that perfectly captures our brand identity. Highly professional and responsive!',
       rating: 5,
     },
     {
       name: 'Michael Chen',
       role: 'Founder, Design Studio',
-      content: 'Working with ByteBloom was a game-changer. Their attention to detail and modern design approach helped us stand out in a competitive market.',
+      content:
+        'Working with ByteBloom was a game-changer. Their attention to detail and modern design approach helped us stand out in a competitive market.',
       rating: 5,
     },
     {
       name: 'Emily Rodriguez',
       role: 'Marketing Director, Growth Co.',
-      content: 'The GSAP animations and smooth user experience ByteBloom created significantly improved our conversion rates. Outstanding work!',
+      content:
+        'The GSAP animations and smooth user experience ByteBloom created significantly improved our conversion rates. Outstanding work!',
       rating: 5,
     },
   ];
@@ -93,12 +96,8 @@ const Testimonials = () => {
                 "{testimonial.content}"
               </p>
               <div>
-                <p className="font-semibold text-gray-900 dark:text-white">
-                  {testimonial.name}
-                </p>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  {testimonial.role}
-                </p>
+                <p className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.role}</p>
               </div>
             </div>
           ))}
@@ -109,4 +108,3 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
-
